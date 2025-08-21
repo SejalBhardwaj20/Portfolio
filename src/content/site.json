@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "greeting": "Hello !",
+    "name": "SEJAL BHARDWAJ",
+    "role": "DESIGNER & DEVELOPER",
+    "tagline": "Dedicated to crafting exceptional user experiences through thoughtful design and precise development. I combine a keen eye for aesthetics and usability with a strong understanding of web technologies to build interactive and engaging digital solutions. My portfolio demonstrates my ability to translate design visions into functional and performant realities."
+  },
+  "quote": "Driven by a commitment to continuous growth, I've immersed myself in the world of designing and am eager to apply my evolving skills in a dynamic environment. Ready to hit the Ground Running",
+  "skills": {
+    "categories": [
+      {
+        "title": "PROGRAMMING LANGUAGES",
+        "items": ["JavaScript", "TypeScript", "Python", "React", "HTML/CSS", "Node.js"]
+      },
+      {
+        "title": "Designing",
+        "items": ["Figma", "Adobe Creative Suite", "Prototyping", "User Research", "Design Systems"]
+      },
+      {
+        "title": "UI Design",
+        "items": ["Interface Design", "Responsive Design", "Animation", "Micro-interactions", "Accessibility"]
+      },
+      {
+        "title": "Logo Designing",
+        "items": ["Brand Identity", "Vector Graphics", "Typography", "Color Theory", "Creative Concepts"]
+      }
+    ]
+  },
+  "certificates": [
+    "Python for Data Science By IBM",
+    "Data Science Methodologies By IBM"
+  ]
+}
