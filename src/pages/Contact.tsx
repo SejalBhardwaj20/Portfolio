@@ -59,19 +59,19 @@ export default function Contact() {
     {
       name: 'Email',
       icon: Mail,
-      href: 'mailto:sejal@example.com',
+      href: 'mailto:bhardwajsejal20@gmail.com',
       color: 'text-primary'
     },
     {
       name: 'GitHub',
       icon: Github,
-      href: 'https://github.com/sejal',
+      href: 'https://github.com/SejalBhardwaj20',
       color: 'text-ink'
     },
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      href: 'https://linkedin.com/in/sejal',
+      href: 'https://www.linkedin.com/in/sejal-bhardwaj-3a3425293/',
       color: 'text-accent'
     }
   ];

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Code, Palette, Figma, Layers, TrendingUp, Target, Zap, Award } from 'lucide-react';
+import { Code, Palette, Figma, Layers, TrendingUp, Target, Zap, Award, Sparkles, Star, Rocket } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
 import siteData from '@/content/site.json';
 
 const container = {
@@ -8,7 +9,7 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15
+      staggerChildren: 0.1
     }
   }
 };
@@ -18,11 +19,36 @@ const item = {
   show: { opacity: 1, y: 0 }
 };
 
+const floatingAnimation = {
+  y: [-10, 10, -10],
+  transition: {
+    duration: 3,
+    repeat: Infinity,
+    ease: "easeInOut"
+  }
+};
+
+const pulseAnimation = {
+  scale: [1, 1.05, 1],
+  transition: {
+    duration: 2,
+    repeat: Infinity,
+    ease: "easeInOut"
+  }
+};
+
 const categoryIcons = {
   'PROGRAMMING LANGUAGES': Code,
   'Designing': Palette,
   'UI Design': Figma,
   'Logo Designing': Layers
+};
+
+const categoryBackgrounds = {
+  'PROGRAMMING LANGUAGES': 'from-blue-500/20 via-purple-500/20 to-indigo-500/20',
+  'Designing': 'from-pink-500/20 via-rose-500/20 to-red-500/20',
+  'UI Design': 'from-green-500/20 via-emerald-500/20 to-teal-500/20',
+  'Logo Designing': 'from-orange-500/20 via-yellow-500/20 to-amber-500/20'
 };
 
 const categoryColors = {
@@ -61,16 +87,16 @@ const skillLevels = [
 
 export default function Skills() {
   const tools = [
-    { name: 'Figma', level: 95, category: 'design' },
-    { name: 'Adobe Creative Suite', level: 90, category: 'design' },
-    { name: 'React', level: 92, category: 'dev' },
-    { name: 'TypeScript', level: 88, category: 'dev' },
-    { name: 'Python', level: 85, category: 'dev' },
-    { name: 'HTML/CSS', level: 95, category: 'dev' },
-    { name: 'JavaScript', level: 90, category: 'dev' },
-    { name: 'Node.js', level: 82, category: 'dev' },
-    { name: 'Git', level: 87, category: 'dev' },
-    { name: 'Framer Motion', level: 85, category: 'dev' }
+    { name: 'Figma', level: 95, category: 'design', icon: '🎨' },
+    { name: 'Adobe Creative Suite', level: 90, category: 'design', icon: '🖌️' },
+    { name: 'React', level: 92, category: 'dev', icon: '⚛️' },
+    { name: 'TypeScript', level: 88, category: 'dev', icon: '📘' },
+    { name: 'Python', level: 85, category: 'dev', icon: '🐍' },
+    { name: 'HTML/CSS', level: 95, category: 'dev', icon: '🌐' },
+    { name: 'JavaScript', level: 90, category: 'dev', icon: '⚡' },
+    { name: 'Node.js', level: 82, category: 'dev', icon: '🟢' },
+    { name: 'Git', level: 87, category: 'dev', icon: '📝' },
+    { name: 'Framer Motion', level: 85, category: 'dev', icon: '🎭' }
   ];
 
   return (

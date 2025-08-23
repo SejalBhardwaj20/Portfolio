@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ExternalLink, Github, Figma, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, Figma, ArrowRight, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { ProjectModal } from '@/components/ProjectModal';
+import { Project } from '@/types';
 import projectsData from '@/content/projects.json';
 
 const categories = ['All', 'Web Apps', 'Prototypes', 'Logos', 'Animations', 'Concepts'];
@@ -26,10 +28,22 @@ const item = {
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projectsData 
+  const filteredProjects = activeFilter === 'All'
+    ? projectsData
     : projectsData.filter(project => project.category === activeFilter);
+
+  const openProjectModal = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeProjectModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   return (
     <div className="min-h-screen pt-32">
@@ -90,8 +104,8 @@ export default function Projects() {
                 whileHover={{ y: -8 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <Card className="group overflow-hidden glass border-border hover-lift h-full">
-                  <Link to={`/projects/${project.slug}`}>
+                <Card className="group overflow-hidden glass border-border hover-lift h-full cursor-pointer">
+                  <div onClick={() => openProjectModal(project as Project)}>
                     <div className="aspect-video bg-muted-bg/50 relative overflow-hidden">
                       <img
                         src={project.cover}
@@ -105,9 +119,11 @@ export default function Projects() {
                           </Badge>
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ArrowRight className="w-5 h-5 text-ink" />
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="text-center">
+                          <Eye className="w-8 h-8 text-white mx-auto mb-2" />
+                          <span className="text-white font-medium">View Details</span>
+                        </div>
                       </div>
                     </div>
                     
@@ -146,7 +162,7 @@ export default function Projects() {
 
                       {/* Links placeholder for future enhancement */}
                     </div>
-                  </Link>
+                  </div>
                 </Card>
               </motion.div>
             ))}
@@ -163,6 +179,13 @@ export default function Projects() {
           )}
         </motion.section>
       </div>
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeProjectModal}
+      />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Briefcase, Code, Award, Mail, Sparkles, Download, Coffee, Github, Palette, Monitor, Layers, Camera } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ArrowRight, Download, Briefcase, Code, Sparkles, Award, Coffee, Github, Palette, Monitor, Layers, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import siteData from '@/content/site.json';
@@ -78,14 +78,24 @@ export default function Home() {
                 </Link>
               </Button>
               
-              <Button variant="outline" size="lg" className="group border-border hover:bg-accent-bg hover:text-accent-foreground">
+              <Button
+                variant="outline"
+                size="lg"
+                className="group border-border hover:bg-accent-bg hover:text-accent-foreground"
+                onClick={() => window.open('/Resume.pdf', '_blank')}
+              >
                 <Download className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform" />
                 <span>Download Resume</span>
               </Button>
             </motion.div>
           </motion.div>
         </div>
+      </section>
 
+
+
+      {/* Hero Section Floating Doodles */}
+      <section className="relative">
         {/* Floating Doodles - Distributed across entire page */}
         <motion.div
           className="absolute top-12 left-8 text-purple-400"
@@ -257,10 +267,8 @@ export default function Home() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-gradient glow-primary"
-            style={{
-              textShadow: "0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3)"
-            }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-gradient"
           >
             Explore My Journey
           </motion.h2>
@@ -336,12 +344,26 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-gradient glow-accent"
-                style={{
-                  textShadow: "0 0 20px hsl(var(--accent) / 0.5), 0 0 40px hsl(var(--accent) / 0.3)"
-                }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-gradient">
               Featured Projects
             </h2>
+            <div className="flex items-center justify-center gap-2 text-sm text-muted">
+              <span>Building Projects — a never ending loop</span>
+              <motion.div
+                animate={{ x: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+                className="text-primary"
+              >
+                <ArrowRight className="w-4 h-4" />
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-center mb-8"
+          >
             <div className="flex items-center justify-center gap-2 text-sm text-muted">
               <span>Building Projects — a never ending loop</span>
               <motion.div

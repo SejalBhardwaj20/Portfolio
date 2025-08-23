@@ -36,7 +36,7 @@ export default function Experience() {
           >
             Work Experience
           </motion.h1>
-          
+
           <blockquote className="text-2xl md:text-3xl font-heading text-ink leading-tight max-w-4xl mx-auto mb-16">
             "{siteData.quote}"
           </blockquote>
